@@ -1,0 +1,470 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>RIR - Polytech Lyon Robotics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Palette Thème Sombre : Noirs, Gris et Blanc */
+			#wrapper {
+				background-color: #111113 !important;
+			}
+			.wrapper.style1 {
+				background-color: #1a1a1e !important;
+			}
+			.wrapper.style2 {
+				background-color: #242429 !important;
+			}
+			.wrapper.style3 {
+				background-color: #151518 !important;
+			}
+			.wrapper.alt {
+				background-color: #18181c !important;
+			}
+			#header {
+				background-color: rgba(17, 17, 19, 0.9) !important;
+			}
+
+			/* Intégration du Logo RIR sans bordure ni encadrement */
+			.logo-rir-clean {
+				max-width: 200px;
+				height: auto;
+				display: block;
+				margin-bottom: 1em;
+				border: none !important;
+				box-shadow: none !important;
+				background: transparent !important;
+				filter: brightness(0) invert(1);
+			}
+
+			/* Style pour les diaporamas d'images (Agrandis à 320px + Cadrés en haut) */
+			.slideshow {
+				position: relative;
+				width: 100%;
+				height: 320px;
+				overflow: hidden;
+				border-radius: 6px;
+				margin-bottom: 1.2em;
+				background-color: #1a1a1e;
+				cursor: pointer;
+			}
+			.slideshow img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: top center;
+				opacity: 0;
+				transition: opacity 1.2s ease-in-out;
+			}
+			.slideshow img.active {
+				opacity: 1;
+			}
+
+			/* Effet de survol sur les images cliquables du site */
+			.image img, article .image img {
+				cursor: pointer;
+				transition: transform 0.2s ease;
+			}
+			.image img:hover, article .image img:hover {
+				transform: scale(1.02);
+			}
+
+			/* Style de la boîte modale (Lightbox pour grand affichage) */
+			.lightbox-modal {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background: rgba(0, 0, 0, 0.9);
+				z-index: 10000;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s ease;
+			}
+			.lightbox-modal.active {
+				opacity: 1;
+				pointer-events: auto;
+			}
+			.lightbox-modal img {
+				max-width: 90vw;
+				max-height: 90vh;
+				object-fit: contain;
+				border-radius: 6px;
+				box-shadow: 0 0 30px rgba(0,0,0,0.8);
+			}
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				font-size: 3em;
+				color: #fff;
+				cursor: pointer;
+				user-select: none;
+				transition: color 0.2s ease;
+			}
+			.lightbox-close:hover {
+				color: #e53935;
+			}
+
+			/* CSS pour le bandeau des sponsors défilant */
+			.sponsors-marquee {
+				width: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+				background: rgba(255, 255, 255, 0.05);
+				padding: 3em 0;
+				margin-top: 2em;
+			}
+			.sponsors-marquee-inner {
+				display: inline-block;
+				animation: marquee 20s linear infinite;
+			}
+			.sponsors-marquee a {
+				display: inline-block;
+				border: none !important;
+				text-decoration: none !important;
+			}
+			.sponsors-marquee img {
+				height: 80px;
+				margin: 0 3em;
+				vertical-align: middle;
+				filter: grayscale(100%) brightness(200%);
+				transition: filter 0.3s ease, transform 0.2s ease;
+			}
+			.sponsors-marquee img:hover {
+				filter: none;
+				transform: scale(1.05);
+			}
+			@keyframes marquee {
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Modale Lightbox pour affichage des images en grand -->
+		<div id="lightbox" class="lightbox-modal">
+			<span class="lightbox-close">&times;</span>
+			<img id="lightbox-img" src="" alt="Photo en grand" />
+		</div>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">RIR - Polytech Lyon</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="index.html">Home</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" style="background-image: url('images/rir.jpg'); background-size: cover; background-position: center;">
+						<div class="inner">
+							<h2>Robotique des Ingénieurs de Roanne</h2>
+							<p>The official student robotics association of <a href="https://polytech.univ-lyon1.fr/">Polytech Lyon</a>.</p>
+						</div>
+					</section>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+
+						<!-- Section 1: The Association -->
+							<section id="one" class="wrapper spotlight style1">
+								<div class="inner">
+									<a href="javascript:void(0)" class="image"><img src="images/photo-association.jpg" alt="RIR Association" /></a>
+									<div class="content">
+										<img src="images/logo-rir.png" class="logo-rir-clean" alt="RIR Logo" />
+										<h2 class="major">Who We Are</h2>
+										<p>RIR is an independent student association run by engineering students from the Industrial and Robotic Systems department at Polytech Lyon (Roanne campus). We bring together passionate future engineers to design, build, and program complex technical projects. From advanced robotics to our custom closed-loop PLA recycling line, we learn by doing.</p>
+									</div>
+								</div>
+							</section>
+
+						<!-- Section 2: The President -->
+							<section id="two" class="wrapper alt spotlight style2">
+								<div class="inner">
+									<a href="javascript:void(0)" class="image"><img src="images/photo-celyann.jpg" alt="Celyann Ceard - President" /></a>
+									<div class="content">
+										<h2 class="major">Meet Our President</h2>
+										<p><strong>Celyann Ceard</strong> is the current President of RIR and a final-year (5A) engineering student in Industrial Systems and Robotics. The president leads the association's technical and strategic vision, coordinating our record-breaking teams and pushing for technological excellence in every project we undertake.</p>
+									</div>
+								</div>
+							</section>
+
+						<!-- Section 3: French Robotics Cup (Current Theme) -->
+							<section id="three" class="wrapper spotlight style3">
+								<div class="inner">
+									<a href="javascript:void(0)" class="image"><img src="images/theme-camelot.jpg" alt="Legend of Camelot" /></a>
+									<div class="content">
+										<h2 class="major">The French Robotics Cup</h2>
+										<p>The <em>Coupe de France de Robotique</em> is our flagship annual project. It is one of Europe's largest student robotics events. For the upcoming <strong>"Legend of Camelot"</strong> edition, our association is experiencing unprecedented engagement. We have formed two distinct teams (a 3A/PEIP team and a 4A/5A team), mixing promotions to share knowledge, with the ambitious goal of reaching the Top 5.</p>
+									</div>
+								</div>
+							</section>
+
+						<!-- Section 4: Past Years History -->
+							<section id="four" class="wrapper alt style1">
+								<div class="inner">
+									<h2 class="major">Our Past Competitions</h2>
+									<p>Every year, the rules change, and we build entirely new autonomous robots from scratch. Here is a look at our recent history in the cup.</p>
+									<section class="features">
+										<article>
+											<div class="slideshow">
+												<img src="images/theme-2026.jpg" class="active" alt="2026 Theme Logo" />
+												<img src="images/theme-2026-robot1.jpg" alt="2026 Robot Photo 1" />
+												<img src="images/theme-2026-robot2.jpg" alt="2026 Robot Photo 2" />
+												<img src="images/theme-2026-poster_1.jpg" alt="2026 Poster 1" />
+												<img src="images/theme-2026-poster_2.jpg" alt="2026 Poster 2" />
+											</div>
+											<h3 class="major">2026: Winter is Coming</h3>
+											<p>A challenging season focused on snow management and survival mechanics.</p>
+										</article>
+										<article>
+											<div class="slideshow">
+												<img src="images/theme-2025.jpg" class="active" alt="2025 Theme Logo" />
+												<img src="images/theme-2025-poster_1.jpg" alt="2025 Poster 1" />
+											</div>
+											<h3 class="major">2025: The Show Must Go On</h3>
+											<p>Our robots hit the stage in a spectacular performance-themed competition.</p>
+										</article>
+										<article>
+											<div class="slideshow">
+												<img src="images/theme-2024.jpg" class="active" alt="2024 Theme Logo" />
+												<img src="images/theme-2024-poster_1.jpg" alt="2024 Poster 1" />
+											</div>
+											<h3 class="major">2024: Farming Mars</h3>
+											<p>We developed advanced plant-handling and resource-gathering mechanisms for the red planet.</p>
+										</article>
+										<article>
+											<div class="slideshow">
+												<img src="images/theme-2023.jpg" class="active" alt="2023 Theme Logo" />
+												<img src="images/theme-2023-poster_1.jpg" alt="2023 Poster 1" />
+												<img src="images/theme-2023-poster_2.jpg" alt="2023 Poster 2" />
+											</div>
+											<h3 class="major">2023: The Cherry on the Cake</h3>
+											<p>Celebrating the 30th anniversary of the Cup with a bakery-themed challenge.</p>
+										</article>
+									</section>
+								</div>
+							</section>
+
+						<!-- Section 5: Forums and Events -->
+							<section id="five" class="wrapper style2">
+								<div class="inner">
+									<h2 class="major">Science Mediation & Events</h2>
+									<p>Beyond the workshop, RIR is deeply committed to sharing our passion for technology with the public. We actively participate in various exhibitions and forums to promote our school, our sponsors, and to provide scientific mediation for younger generations and their families.</p>
+									<section class="features">
+										<article>
+											<a href="javascript:void(0)" class="image"><img src="images/forum-fete-science.jpg" alt="Fête de la Science" /></a>
+											<h3 class="major">Fête de la Science (Roanne)</h3>
+											<p>An annual national event where we introduce children and adults to the basics of robotics, electronics, and 3D printing.</p>
+										</article>
+										<article>
+											<a href="javascript:void(0)" class="image"><img src="images/forum-fablab.jpg" alt="Qu'est-ce que tu fabriques" /></a>
+											<h3 class="major">"Qu'est-ce que tu fabriques ?"</h3>
+											<p>Organized by the Roanne Fablab, this maker fair allows us to showcase our mechanical creations and custom manufacturing tools.</p>
+										</article>
+										<article>
+											<a href="javascript:void(0)" class="image"><img src="images/forum-japan-touch.jpg" alt="Japan Touch Geek" /></a>
+											<h3 class="major">Japan Touch Geek (Lyon)</h3>
+											<p>A massive pop-culture and tech convention in Lyon where our robots are demonstrated to thousands of curious visitors.</p>
+										</article>
+									</section>
+								</div>
+							</section>
+
+						<!-- Section 6: Our Other Projects -->
+							<section id="six" class="wrapper style3">
+								<div class="inner">
+									<h2 class="major">Our Other Projects</h2>
+									<p>The RIR workshop is a true hub for innovation. Beyond the Robotics Cup, our members develop personal and side projects that push the boundaries of our engineering, electronics, and manufacturing skills.</p>
+									<section class="features">
+										<article>
+											<a href="javascript:void(0)" class="image"><img src="images/project-freddy1.jpg" alt="Glamrock Freddy Animatronic" /></a>
+											<h3 class="major">Glamrock Freddy Animatronic</h3>
+											<p>A fully functional, life-size animatronic head running on battery power. Driven by a Jetson Nano, it features face tracking, voice synthesis, addressable LED lighting, and embedded AI for interactive responses.</p>
+										</article>
+										<article>
+											<a href="javascript:void(0)" class="image"><img src="images/project-arcade.jpg" alt="The RIR-Arcade" /></a>
+											<h3 class="major">The RIR-Arcade</h3>
+											<p>A custom-built arcade cabinet powered by a Raspberry Pi 4. It emulates dozens of retro consoles and classic arcade machines, bringing hundreds of vintage games to the workshop for well-deserved breaks.</p>
+										</article>
+										<article>
+											<a href="javascript:void(0)" class="image"><img src="images/project-polykart.jpg" alt="The Poly Kart" /></a>
+											<h3 class="major">The Poly Kart</h3>
+											<p>We upcycled a standard shopping cart into a dedicated logistics vehicle. It allows us to easily and safely transport our heavy robots, PAMIs, and equipment across exhibitions without the heavy lifting.</p>
+										</article>
+										<article>
+											<a href="javascript:void(0)" class="image"><img src="images/project-extruder.jpg" alt="The Poly-Extruder" /></a>
+											<h3 class="major">The Poly-Extruder</h3>
+											<p>A complete closed-loop PLA recycling line. Featuring a shredder, a filament dryer, and a custom extrusion system, this machine allows us to manufacture our own 3D printing spools from shredded scrap plastic.</p>
+										</article>
+									</section>
+								</div>
+							</section>
+
+					</section>
+
+				<!-- Sponsors Marquee -->
+					<div class="sponsors-marquee">
+						<div class="sponsors-marquee-inner">
+							<a href="https://polytech.univ-lyon1.fr/" target="_blank" rel="noopener"><img src="images/logo-polytech.png" alt="Polytech Lyon" /></a>
+							<a href="https://www.aggloroanne.fr/" target="_blank" rel="noopener"><img src="images/logo-roannaisagglo.png" alt="Roannais Agglomération" /></a>
+							<a href="https://www.esun3d.com/" target="_blank" rel="noopener"><img src="images/logo-esun.png" alt="eSUN" /></a>
+							<a href="https://www.omc-stepperonline.com/" target="_blank" rel="noopener"><img src="images/logo-stepperonline.png" alt="StepperOnline" /></a>
+							<a href="https://artme-3d.shop/" target="_blank" rel="noopener"><img src="images/logo-artme3d.png" alt="ARTME3D" /></a>
+							
+							<!-- Duplication pour boucle infinie -->
+							<a href="https://polytech.univ-lyon1.fr/" target="_blank" rel="noopener"><img src="images/logo-polytech.png" alt="Polytech Lyon" /></a>
+							<a href="https://www.aggloroanne.fr/" target="_blank" rel="noopener"><img src="images/logo-roannaisagglo.png" alt="Roannais Agglomération" /></a>
+							<a href="https://www.esun3d.com/" target="_blank" rel="noopener"><img src="images/logo-esun.png" alt="eSUN" /></a>
+							<a href="https://www.omc-stepperonline.com/" target="_blank" rel="noopener"><img src="images/logo-stepperonline.png" alt="StepperOnline" /></a>
+							<a href="https://artme-3d.shop/" target="_blank" rel="noopener"><img src="images/logo-artme3d.png" alt="ARTME3D" /></a>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="inner">
+							<h2 class="major">Get in touch</h2>
+							<p>Interested in our projects? Want to become a sponsor or collaborate with future engineers? Feel free to contact us!</p>
+							
+							<ul class="contact">
+								<li class="icon solid fa-home">
+									Robotique des Ingénieurs de Roanne<br />
+									Technopôle Diderot, Polytech Lyon<br />
+									Roanne, France
+								</li>
+								<li class="icon solid fa-phone">+33 6 51 60 55 46</li>
+								<li class="icon solid fa-envelope"><a href="mailto:rir.polytech@gmail.com">rir.polytech@gmail.com</a></li>
+								<li class="icon brands fa-instagram"><a href="https://instagram.com/rir.polytech">instagram.com/rir.polytech</a></li>
+								<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/r-i-r-robotique-des-ing%C3%A9nieurs-de-roanne-3076a1269/">Robotique des Ingénieurs de Roanne</a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; RIR Polytech Lyon. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		<!-- Script du diaporama & modale grand écran -->
+			<script>
+				document.addEventListener("DOMContentLoaded", function() {
+					const lightbox = document.getElementById('lightbox');
+					const lightboxImg = document.getElementById('lightbox-img');
+					const lightboxClose = document.querySelector('.lightbox-close');
+					let isPaused = false;
+
+					// 1. Diaporamas (Section Coupe de France)
+					const slideshows = document.querySelectorAll('.slideshow');
+					slideshows.forEach(slideshow => {
+						const images = slideshow.querySelectorAll('img');
+						if (images.length > 0) {
+							let currentIndex = 0;
+							
+							if (images.length > 1) {
+								setInterval(() => {
+									if (!isPaused) {
+										images[currentIndex].classList.remove('active');
+										currentIndex = (currentIndex + 1) % images.length;
+										images[currentIndex].classList.add('active');
+									}
+								}, 3500);
+							}
+
+							slideshow.addEventListener('click', function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								const activeImg = slideshow.querySelector('img.active') || images[0];
+								if (activeImg && activeImg.src) {
+									lightboxImg.src = activeImg.src;
+									lightbox.classList.add('active');
+									isPaused = true;
+								}
+							});
+						}
+					});
+
+					// 2. Images statiques (Présentation, Président, Thème Camelot, Forums, Projets)
+					const staticImages = document.querySelectorAll('#wrapper img:not(.logo-rir-clean)');
+					staticImages.forEach(img => {
+						if (!img.closest('.slideshow') && !img.closest('.sponsors-marquee')) {
+							img.addEventListener('click', function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								if (this.src) {
+									lightboxImg.src = this.src;
+									lightbox.classList.add('active');
+									isPaused = true;
+								}
+							});
+
+							// Empêche le comportement par défaut si l'image est dans un lien <a>
+							const parentLink = img.closest('a');
+							if (parentLink && !parentLink.closest('.sponsors-marquee')) {
+								parentLink.addEventListener('click', function(e) {
+									e.preventDefault();
+								});
+							}
+						}
+					});
+
+					// 3. Fermeture de la boîte modale
+					function closeLightbox() {
+						lightbox.classList.remove('active');
+						isPaused = false;
+					}
+
+					lightboxClose.addEventListener('click', closeLightbox);
+					lightbox.addEventListener('click', function(e) {
+						if (e.target === lightbox) {
+							closeLightbox();
+						}
+					});
+					document.addEventListener('keydown', function(e) {
+						if (e.key === "Escape" && lightbox.classList.contains('active')) {
+							closeLightbox();
+						}
+					});
+				});
+			</script>
+
+	</body>
+</html>
